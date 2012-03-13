@@ -101,8 +101,8 @@ Attacklab.wmdBase = function(){
 	var pastePollInterval = 100;
 	
 	// The link and title for the help button
-	var helpLink = "http://wmd-editor.com/";
-	var helpHoverTitle = "WMD website";
+	var helpLink = "http://daringfireball.net/projects/markdown/syntax";
+	var helpHoverTitle = "MarkDown Syntax";
 	var helpTarget = "_blank";
 	
 	// -------------------------------------------------------------------
@@ -1134,10 +1134,10 @@ Attacklab.wmdBase = function(){
 			helpAnchor.href = helpLink;
 			helpAnchor.target = helpTarget
 			helpAnchor.title = helpHoverTitle;
-			//helpButton.appendChild(helpAnchor);
+			helpButton.appendChild(helpAnchor);
 			
-			//setupButton(helpButton, true);
-			//buttonRow.appendChild(helpButton);
+			setupButton(helpButton, true);
+			buttonRow.appendChild(helpButton);
 			
 			setUndoRedoButtonStates();
 		}
