@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import urllib2, urllib
 
 API_SSL_SERVER="https://www.google.com/recaptcha/api"
@@ -9,35 +11,22 @@ class RecaptchaResponse(object):
         self.is_valid = is_valid
         self.error_code = error_code
 
-def displayhtml (public_key,
-                 use_ssl = False,
-                 error = None):
-    """Gets the HTML to display for reCAPTCHA
+def displayhtml (public_key):
 
-    public_key -- The public api key
-    use_ssl -- Should the request be sent over ssl?
-    error -- An error message to display (from RecaptchaResponse.error_code)"""
+    return """
+    <div id="recaptcha_field"></div>
+    <script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
 
-    error_param = ''
-    if error:
-        error_param = '&error=%s' % error
+    <script type="text/javascript">
+         $(function(){
+             Recaptcha.create("%(PublicKey)s", 'recaptcha_field', {
+             theme: "red",
+             callback: Recaptcha.focus_response_field});
+         });
+    </script>
 
-    if use_ssl:
-        server = API_SSL_SERVER
-    else:
-        server = API_SERVER
-
-    return """<script type="text/javascript" src="%(ApiServer)s/challenge?k=%(PublicKey)s%(ErrorParam)s"></script>
-
-<noscript>
-  <iframe src="%(ApiServer)s/noscript?k=%(PublicKey)s%(ErrorParam)s" height="300" width="500" frameborder="0"></iframe><br />
-  <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
-  <input type='hidden' name='recaptcha_response_field' value='manual_challenge' />
-</noscript>
 """ % {
-        'ApiServer' : server,
         'PublicKey' : public_key,
-        'ErrorParam' : error_param,
         }
 
 
@@ -45,15 +34,6 @@ def submit (recaptcha_challenge_field,
             recaptcha_response_field,
             private_key,
             remoteip):
-    """
-    Submits a reCAPTCHA request for verification. Returns RecaptchaResponse
-    for the request
-
-    recaptcha_challenge_field -- The value of recaptcha_challenge_field from the form
-    recaptcha_response_field -- The value of recaptcha_response_field from the form
-    private_key -- your reCAPTCHA private key
-    remoteip -- the user's ip address
-    """
 
     if not (recaptcha_response_field and recaptcha_challenge_field and
             len (recaptcha_response_field) and len (recaptcha_challenge_field)):
@@ -81,14 +61,14 @@ def submit (recaptcha_challenge_field,
         }
     )
 
-    httpresp = urllib2.urlopen (request)
+    httpresp = urllib2.urlopen(request)
 
-    return_values = httpresp.read ().splitlines ();
-    httpresp.close();
+    return_values = httpresp.read().splitlines()
+    httpresp.close()
 
-    return_code = return_values [0]
+    return_code = return_values[0]
 
-    if (return_code == "true"):
-        return RecaptchaResponse (is_valid=True)
+    if return_code == "true":
+        return RecaptchaResponse(is_valid = True)
     else:
-        return RecaptchaResponse (is_valid=False, error_code = return_values [1])
+        return RecaptchaResponse(is_valid = False, error_code = return_values[1])

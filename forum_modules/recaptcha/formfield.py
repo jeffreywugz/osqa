@@ -27,6 +27,7 @@ class ReCaptchaWidget(forms.Widget):
         return mark_safe(force_unicode(captcha.displayhtml(settings.RECAPTCHA_PUB_KEY)))
 
     def value_from_datadict(self, data, files, name):
-        return (data.get('recaptcha_challenge_field', None), data.get('recaptcha_response_field', None))
+
+        return data.get('recaptcha_challenge_field', None), data.get('recaptcha_response_field', None)
         
 
