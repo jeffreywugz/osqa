@@ -114,6 +114,7 @@ this.makeHtml = function(text) {
 // _EscapeSpecialCharsWithinTagAttributes(), so that any *'s or _'s in the <a>
 // and <img> tags get encoded.
 //
+    text = html_sanitize(text, function(url) {return url;}, function(id) {return id;});
 
 	// Clear the global hashes. If we don't clear these, you get conflicts
 	// from other articles when generating a page which contains more than
