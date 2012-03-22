@@ -20,8 +20,7 @@ def displayhtml (public_key):
     <script type="text/javascript">
          $(function(){
              Recaptcha.create("%(PublicKey)s", 'recaptcha_field', {
-             theme: "red",
-             callback: Recaptcha.focus_response_field});
+             theme: "red"});
          });
     </script>
 
