@@ -25,7 +25,11 @@
     {{ questions.paginator.sort_tabs }}
 </div>
 <div id="listA">{% for question in questions.paginator.page %}
-    {% question_list_item question %}
+    {% if show_summary %}
+      {% question_list_item question question_summary=yes %}
+    {% else %}
+      {% question_list_item question %}
+    {% endif %}
 {% endfor %}</div>
 {% endblock %}
 

@@ -317,13 +317,16 @@ class Node(BaseModel, NodeContent):
 
     @property
     def summary(self):
-        content = strip_tags(self.html)[:SUMMARY_LENGTH]
+        content = strip_tags(self.html)
 
         # Remove multiple spaces.
         content = re.sub(' +',' ', content)
 
-        # Remove line breaks. We don't need them at all.
-        content = content.replace("\n", '')
+        # Replace line breaks with a space, we don't need them at all.
+        content = content.replace("\n", ' ')
+
+        # Truncate and all an ellipsis if length greater than summary length.
+        content = (content[:SUMMARY_LENGTH] + '...') if len(content) > SUMMARY_LENGTH else content
 
         return content
 

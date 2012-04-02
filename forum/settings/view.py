@@ -19,6 +19,11 @@ SUMMARY_LENGTH = Setting('SUMMARY_LENGTH', 300, VIEW_SET, dict(
 label = _("Summary Length"),
 help_text = _("The number of characters that are going to be displayed in order to get the content summary.")))
 
+SHOW_SUMMARY_ON_QUESTIONS_LIST = Setting('SHOW_SUMMARY_ON_QUESTIONS_LIST', False, VIEW_SET, dict(
+label = _("Question summary on questions list?"),
+help_text = _("Choose whether to show the question summary on questions list"),
+required=False))
+
 # Tag settings
 RECENT_TAGS_SIZE = Setting('RECENT_TAGS_SIZE', 25, VIEW_SET, dict(
 label = _("Recent tags block size"),
