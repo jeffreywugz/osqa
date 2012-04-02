@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OSQA 完全汉化 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-15 09:19+0200\n"
+"POT-Creation-Date: 2012-04-02 14:15-0700\n"
 "PO-Revision-Date: 2011-09-08 15:07+0800\n"
 "Last-Translator: Deng Fei <duke8253@gmail.com>\n"
 "Language-Team: Deng Fei <duke8253@gmail.com>\n"
@@ -1302,15 +1302,15 @@ msgstr "感兴趣"
 msgid "ignored"
 msgstr "已忽略"
 
-#: forum/models/user.py:217 forum/views/readers.py:144
+#: forum/models/user.py:233 forum/views/readers.py:144
 msgid "asked-by"
 msgstr "提问者"
 
-#: forum/models/user.py:232 forum/views/readers.py:147
+#: forum/models/user.py:248 forum/views/readers.py:147
 msgid "answered-by"
 msgstr "回答者"
 
-#: forum/models/user.py:238 forum/views/readers.py:150
+#: forum/models/user.py:254 forum/views/readers.py:150
 msgid "subscribed-by"
 msgstr "订阅者"
 
@@ -3038,20 +3038,20 @@ msgid "Give your  account a new password."
 msgstr "为你的账号设置新密码。"
 
 #: forum/skins/default/templates/answer_edit.html:5
-#: forum/skins/default/templates/answer_edit.html:62
+#: forum/skins/default/templates/answer_edit.html:63
 #: forum/skins/nuxeo/templates/answer_edit.html:5
 #: forum/skins/nuxeo/templates/answer_edit.html:62
 msgid "Edit answer"
 msgstr "编辑回答"
 
-#: forum/skins/default/templates/answer_edit.html:19
-#: forum/skins/default/templates/answer_edit.html:22
-#: forum/skins/default/templates/ask.html:26
-#: forum/skins/default/templates/ask.html:29
-#: forum/skins/default/templates/question.html:46
-#: forum/skins/default/templates/question.html:49
-#: forum/skins/default/templates/question_edit.html:19
-#: forum/skins/default/templates/question_edit.html:22
+#: forum/skins/default/templates/answer_edit.html:20
+#: forum/skins/default/templates/answer_edit.html:23
+#: forum/skins/default/templates/ask.html:27
+#: forum/skins/default/templates/ask.html:30
+#: forum/skins/default/templates/question.html:47
+#: forum/skins/default/templates/question.html:50
+#: forum/skins/default/templates/question_edit.html:20
+#: forum/skins/default/templates/question_edit.html:23
 #: forum/skins/nuxeo/templates/answer_edit.html:19
 #: forum/skins/nuxeo/templates/answer_edit.html:22
 #: forum/skins/nuxeo/templates/ask.html:45
@@ -3063,10 +3063,10 @@ msgstr "编辑回答"
 msgid "hide preview"
 msgstr "隐藏预览"
 
-#: forum/skins/default/templates/answer_edit.html:22
-#: forum/skins/default/templates/ask.html:29
-#: forum/skins/default/templates/question.html:49
-#: forum/skins/default/templates/question_edit.html:22
+#: forum/skins/default/templates/answer_edit.html:23
+#: forum/skins/default/templates/ask.html:30
+#: forum/skins/default/templates/question.html:50
+#: forum/skins/default/templates/question_edit.html:23
 #: forum/skins/nuxeo/templates/answer_edit.html:22
 #: forum/skins/nuxeo/templates/ask.html:48
 #: forum/skins/nuxeo/templates/question.html:42
@@ -3074,8 +3074,8 @@ msgstr "隐藏预览"
 msgid "show preview"
 msgstr "显示预览"
 
-#: forum/skins/default/templates/answer_edit.html:62
-#: forum/skins/default/templates/question_edit.html:91
+#: forum/skins/default/templates/answer_edit.html:63
+#: forum/skins/default/templates/question_edit.html:92
 #: forum/skins/default/templates/question_retag.html:40
 #: forum/skins/default/templates/revisions.html:38
 #: forum/skins/nuxeo/templates/answer_edit.html:62
@@ -3085,8 +3085,8 @@ msgstr "显示预览"
 msgid "back"
 msgstr "返回"
 
-#: forum/skins/default/templates/answer_edit.html:68
-#: forum/skins/default/templates/question_edit.html:97
+#: forum/skins/default/templates/answer_edit.html:69
+#: forum/skins/default/templates/question_edit.html:98
 #: forum/skins/default/templates/revisions.html:54
 #: forum/skins/nuxeo/templates/answer_edit.html:67
 #: forum/skins/nuxeo/templates/question_edit.html:96
@@ -3094,17 +3094,17 @@ msgstr "返回"
 msgid "revision"
 msgstr "版本号"
 
-#: forum/skins/default/templates/answer_edit.html:71
-#: forum/skins/default/templates/question_edit.html:101
+#: forum/skins/default/templates/answer_edit.html:72
+#: forum/skins/default/templates/question_edit.html:102
 #: forum/skins/nuxeo/templates/answer_edit.html:70
 #: forum/skins/nuxeo/templates/question_edit.html:100
 msgid "select revision"
 msgstr "选择版本号"
 
-#: forum/skins/default/templates/answer_edit.html:78
-#: forum/skins/default/templates/ask.html:130
-#: forum/skins/default/templates/question.html:232
-#: forum/skins/default/templates/question_edit.html:118
+#: forum/skins/default/templates/answer_edit.html:79
+#: forum/skins/default/templates/ask.html:131
+#: forum/skins/default/templates/question.html:233
+#: forum/skins/default/templates/question_edit.html:119
 #: forum/skins/nuxeo/templates/answer_edit.html:77
 #: forum/skins/nuxeo/templates/ask.html:132
 #: forum/skins/nuxeo/templates/question.html:234
@@ -3112,10 +3112,10 @@ msgstr "选择版本号"
 msgid "Toggle the real time Markdown editor preview"
 msgstr "切换实时Markdown编辑器预览"
 
-#: forum/skins/default/templates/answer_edit.html:78
-#: forum/skins/default/templates/ask.html:130
-#: forum/skins/default/templates/question.html:233
-#: forum/skins/default/templates/question_edit.html:118
+#: forum/skins/default/templates/answer_edit.html:79
+#: forum/skins/default/templates/ask.html:131
+#: forum/skins/default/templates/question.html:234
+#: forum/skins/default/templates/question_edit.html:119
 #: forum/skins/nuxeo/templates/answer_edit.html:77
 #: forum/skins/nuxeo/templates/ask.html:132
 #: forum/skins/nuxeo/templates/question.html:235
@@ -3123,8 +3123,8 @@ msgstr "切换实时Markdown编辑器预览"
 msgid "toggle preview"
 msgstr "切换预览"
 
-#: forum/skins/default/templates/answer_edit.html:102
-#: forum/skins/default/templates/question_edit.html:154
+#: forum/skins/default/templates/answer_edit.html:103
+#: forum/skins/default/templates/question_edit.html:155
 #: forum/skins/default/templates/question_retag.html:62
 #: forum/skins/nuxeo/templates/answer_edit.html:101
 #: forum/skins/nuxeo/templates/question_edit.html:153
@@ -3132,11 +3132,11 @@ msgstr "切换预览"
 msgid "Save edit"
 msgstr "保存编辑"
 
-#: forum/skins/default/templates/answer_edit.html:103
+#: forum/skins/default/templates/answer_edit.html:104
 #: forum/skins/default/templates/base_content.html:44
 #: forum/skins/default/templates/close.html:30
 #: forum/skins/default/templates/feedback.html:67
-#: forum/skins/default/templates/question_edit.html:155
+#: forum/skins/default/templates/question_edit.html:156
 #: forum/skins/default/templates/question_retag.html:63
 #: forum/skins/default/templates/reopen.html:30
 #: forum/skins/default/templates/users/edit.html:100
@@ -3184,18 +3184,18 @@ msgid "see frequently asked questions"
 msgstr "查看常见问题"
 
 #: forum/skins/default/templates/ask.html:4
-#: forum/skins/default/templates/ask.html:92
+#: forum/skins/default/templates/ask.html:93
 #: forum/skins/nuxeo/templates/ask.html:4
 #: forum/skins/nuxeo/templates/ask.html:112
 msgid "Ask a question"
 msgstr "我要提问"
 
-#: forum/skins/default/templates/ask.html:100
+#: forum/skins/default/templates/ask.html:101
 #: forum/skins/nuxeo/templates/ask.html:165
 msgid "You are welcome to start submitting your question anonymously."
 msgstr "你可以进行匿名提问。"
 
-#: forum/skins/default/templates/ask.html:101
+#: forum/skins/default/templates/ask.html:102
 #: forum/skins/nuxeo/templates/ask.html:166
 msgid ""
 "\n"
@@ -3210,35 +3210,35 @@ msgstr ""
 "                    你提出的问题会保存在当前会话中，并将在你登录成功后，\n"
 "                    或注册新账号"
 
-#: forum/skins/default/templates/ask.html:105
+#: forum/skins/default/templates/ask.html:106
 #: forum/skins/nuxeo/templates/ask.html:170
 msgid "and validate your email."
 msgstr "并验证你的邮箱后发布。"
 
-#: forum/skins/default/templates/ask.html:110
+#: forum/skins/default/templates/ask.html:111
 #: forum/skins/nuxeo/templates/ask.html:175
 msgid ""
 "Remember, your question will not be published until you validate your email."
 msgstr "请记住，在你的邮箱验证完成之前，你的问题将不会发布。"
 
-#: forum/skins/default/templates/ask.html:111
+#: forum/skins/default/templates/ask.html:112
 #: forum/skins/default/templates/users/info.html:98
 #: forum/skins/nuxeo/templates/ask.html:176
 #: forum/skins/nuxeo/templates/users/info.html:55
 msgid "Send me a validation link."
 msgstr "给我发送一个验证链接。"
 
-#: forum/skins/default/templates/ask.html:146
+#: forum/skins/default/templates/ask.html:147
 #: forum/skins/nuxeo/templates/ask.html:148
 msgid "(required)"
 msgstr "（必填）"
 
-#: forum/skins/default/templates/ask.html:162
+#: forum/skins/default/templates/ask.html:163
 #: forum/skins/nuxeo/templates/ask.html:182
 msgid "Login/signup to post your question"
 msgstr "登录/注册来提出问题"
 
-#: forum/skins/default/templates/ask.html:164
+#: forum/skins/default/templates/ask.html:165
 #: forum/skins/nuxeo/templates/ask.html:184
 msgid "Ask your question"
 msgstr "提出你的问题"
@@ -3990,7 +3990,7 @@ msgstr "政策变化"
 msgid "how privacy policies can be changed"
 msgstr "如何修改隐私保护"
 
-#: forum/skins/default/templates/question.html:118
+#: forum/skins/default/templates/question.html:119
 #: forum/skins/default/templates/sidebar/recent_tags.html:11
 #: forum/skins/nuxeo/templates/question.html:117
 #: forum/skins/nuxeo/templates/sidebar/recent_tags.html:8
@@ -3998,51 +3998,51 @@ msgstr "如何修改隐私保护"
 msgid "see questions tagged '%(tagname)s'"
 msgstr "查看带有\"%(tagname)s\"标签的问题"
 
-#: forum/skins/default/templates/question.html:137
+#: forum/skins/default/templates/question.html:138
 #: forum/skins/nuxeo/templates/question.html:135
 #, python-format
 msgid ""
 "The question has been closed for the following reason \"%(close_reason)s\" by"
 msgstr "问题由于以下原因被关闭了\"%(close_reason)s\"由"
 
-#: forum/skins/default/templates/question.html:148
+#: forum/skins/default/templates/question.html:149
 #, python-format
 msgid "One Answer:"
 msgid_plural "%(counter)s Answers:"
 msgstr[0] "1回答："
 msgstr[1] "%(counter)s回答："
 
-#: forum/skins/default/templates/question.html:198
+#: forum/skins/default/templates/question.html:199
 #: forum/skins/nuxeo/templates/question.html:200
 msgid "Your answer"
 msgstr "你的回答"
 
-#: forum/skins/default/templates/question.html:200
+#: forum/skins/default/templates/question.html:201
 #: forum/skins/nuxeo/templates/question.html:202
 msgid "Be the first one to answer this question!"
 msgstr "还没人回答这个问题，快来抢沙发吧！"
 
-#: forum/skins/default/templates/question.html:265
+#: forum/skins/default/templates/question.html:266
 #: forum/skins/nuxeo/templates/question.html:267
 msgid "Login/Signup to Post Your Answer"
 msgstr "登录/注册来回答问题"
 
-#: forum/skins/default/templates/question.html:268
+#: forum/skins/default/templates/question.html:269
 #: forum/skins/nuxeo/templates/question.html:270
 msgid "Answer Your Own Question"
 msgstr "回答你自己的问题"
 
-#: forum/skins/default/templates/question.html:270
+#: forum/skins/default/templates/question.html:271
 #: forum/skins/nuxeo/templates/question.html:272
 msgid "Answer the question"
 msgstr "回答这个问题"
 
-#: forum/skins/default/templates/question.html:292
+#: forum/skins/default/templates/question.html:293
 #: forum/skins/nuxeo/templates/question.html:294
 msgid "Question tags"
 msgstr "问题标签"
 
-#: forum/skins/default/templates/question.html:298
+#: forum/skins/default/templates/question.html:299
 #: forum/skins/default/templates/question_summary_list_roll.html:54
 #: forum/skins/default/templates/tags.html:45
 #: forum/skins/default/templates/question_list/item.html:31
@@ -4053,7 +4053,7 @@ msgstr "问题标签"
 msgid "see questions tagged"
 msgstr "查看带有以下标签的问题"
 
-#: forum/skins/default/templates/question.html:298
+#: forum/skins/default/templates/question.html:299
 #: forum/skins/default/templates/question_summary_list_roll.html:54
 #: forum/skins/default/templates/tags.html:45
 #: forum/skins/nuxeo/templates/question.html:300
@@ -4062,33 +4062,33 @@ msgstr "查看带有以下标签的问题"
 msgid "using tags"
 msgstr "使用标签"
 
-#: forum/skins/default/templates/question.html:303
+#: forum/skins/default/templates/question.html:304
 #: forum/skins/nuxeo/templates/question.html:305
 msgid "question asked"
 msgstr "已提出的问题"
 
-#: forum/skins/default/templates/question.html:306
+#: forum/skins/default/templates/question.html:307
 #: forum/skins/nuxeo/templates/question.html:308
 msgid "question was seen"
 msgstr "问题浏览量"
 
-#: forum/skins/default/templates/question.html:306
+#: forum/skins/default/templates/question.html:307
 #: forum/skins/nuxeo/templates/question.html:308
 msgid "times"
 msgstr "次"
 
-#: forum/skins/default/templates/question.html:309
+#: forum/skins/default/templates/question.html:310
 #: forum/skins/nuxeo/templates/question.html:311
 msgid "last updated"
 msgstr "最后更新"
 
-#: forum/skins/default/templates/question.html:315
+#: forum/skins/default/templates/question.html:316
 #: forum/skins/nuxeo/templates/question.html:317
 msgid "Related questions"
 msgstr "相关问题"
 
 #: forum/skins/default/templates/question_edit.html:5
-#: forum/skins/default/templates/question_edit.html:91
+#: forum/skins/default/templates/question_edit.html:92
 #: forum/skins/nuxeo/templates/question_edit.html:5
 #: forum/skins/nuxeo/templates/question_edit.html:91
 msgid "Edit question"
@@ -6450,7 +6450,7 @@ msgstr[1] ""
 "                <span class=\"count\">%(counter)s</span>问题\n"
 "                "
 
-#: forum/skins/default/templates/users/stats.html:35
+#: forum/skins/default/templates/users/stats.html:37
 #: forum/skins/nuxeo/templates/users/stats.html:35
 #, python-format
 msgid ""
@@ -6470,18 +6470,18 @@ msgstr[1] ""
 "                <span class=\"count\">%(counter)s</span>回答\n"
 "                "
 
-#: forum/skins/default/templates/users/stats.html:49
+#: forum/skins/default/templates/users/stats.html:51
 #: forum/skins/nuxeo/templates/users/stats.html:49
 #, python-format
 msgid "the answer has been voted for %(vote_count)s times"
 msgstr "回答已经被投了%(vote_count)s次票"
 
-#: forum/skins/default/templates/users/stats.html:49
+#: forum/skins/default/templates/users/stats.html:51
 #: forum/skins/nuxeo/templates/users/stats.html:49
 msgid "this answer has been selected as correct"
 msgstr "该回答已被标记为正确的"
 
-#: forum/skins/default/templates/users/stats.html:67
+#: forum/skins/default/templates/users/stats.html:72
 #: forum/skins/nuxeo/templates/users/stats.html:67
 #, python-format
 msgid ""
@@ -6501,27 +6501,27 @@ msgstr[1] ""
 "                    <span class=\"count\">%(cnt)s</span>投票\n"
 "                "
 
-#: forum/skins/default/templates/users/stats.html:78
+#: forum/skins/default/templates/users/stats.html:83
 #: forum/skins/nuxeo/templates/users/stats.html:78
 msgid "thumb up"
 msgstr "投票支持"
 
-#: forum/skins/default/templates/users/stats.html:79
+#: forum/skins/default/templates/users/stats.html:84
 #: forum/skins/nuxeo/templates/users/stats.html:79
 msgid "user has voted up this many times"
 msgstr "用户投票支持的次数"
 
-#: forum/skins/default/templates/users/stats.html:83
+#: forum/skins/default/templates/users/stats.html:88
 #: forum/skins/nuxeo/templates/users/stats.html:83
 msgid "thumb down"
 msgstr "投票反对"
 
-#: forum/skins/default/templates/users/stats.html:84
+#: forum/skins/default/templates/users/stats.html:89
 #: forum/skins/nuxeo/templates/users/stats.html:84
 msgid "user voted down this many times"
 msgstr "用户投票反对的次数"
 
-#: forum/skins/default/templates/users/stats.html:93
+#: forum/skins/default/templates/users/stats.html:98
 #: forum/skins/nuxeo/templates/users/stats.html:93
 #, python-format
 msgid ""
@@ -6541,14 +6541,14 @@ msgstr[1] ""
 "                    <span class=\"count\">%(counter)s</span>标签\n"
 "                "
 
-#: forum/skins/default/templates/users/stats.html:107
+#: forum/skins/default/templates/users/stats.html:112
 #: forum/skins/nuxeo/templates/users/stats.html:107
 #, python-format
 msgid ""
 "see other questions with %(view_user)s's contributions tagged '%(tag_name)s' "
 msgstr "查看%(view_user)s使用标签\"%(tag_name)s\"的其他问题"
 
-#: forum/skins/default/templates/users/stats.html:122
+#: forum/skins/default/templates/users/stats.html:127
 #: forum/skins/nuxeo/templates/users/stats.html:122
 #, python-format
 msgid ""

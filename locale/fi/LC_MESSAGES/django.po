@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-15 09:21+0200\n"
+"POT-Creation-Date: 2012-04-02 14:15-0700\n"
 "PO-Revision-Date: 2010-12-19 14:24+0200\n"
 "Last-Translator: Petteri Aimonen <jpa@osqa.mail.kapsi.fi>\n"
 "Language-Team: Finnish\n"
@@ -1328,15 +1328,15 @@ msgstr "kiinnostava"
 msgid "ignored"
 msgstr "piilotettu"
 
-#: forum/models/user.py:217 forum/views/readers.py:144
+#: forum/models/user.py:233 forum/views/readers.py:144
 msgid "asked-by"
 msgstr "asked-by"
 
-#: forum/models/user.py:232 forum/views/readers.py:147
+#: forum/models/user.py:248 forum/views/readers.py:147
 msgid "answered-by"
 msgstr "answered-by"
 
-#: forum/models/user.py:238 forum/views/readers.py:150
+#: forum/models/user.py:254 forum/views/readers.py:150
 msgid "subscribed-by"
 msgstr "subscribed-by"
 
@@ -3210,20 +3210,20 @@ msgid "Give your  account a new password."
 msgstr "Vaihda tunnuksesi salasana."
 
 #: forum/skins/default/templates/answer_edit.html:5
-#: forum/skins/default/templates/answer_edit.html:62
+#: forum/skins/default/templates/answer_edit.html:63
 #: forum/skins/nuxeo/templates/answer_edit.html:5
 #: forum/skins/nuxeo/templates/answer_edit.html:62
 msgid "Edit answer"
 msgstr "Muokkaa vastausta"
 
-#: forum/skins/default/templates/answer_edit.html:19
-#: forum/skins/default/templates/answer_edit.html:22
-#: forum/skins/default/templates/ask.html:26
-#: forum/skins/default/templates/ask.html:29
-#: forum/skins/default/templates/question.html:46
-#: forum/skins/default/templates/question.html:49
-#: forum/skins/default/templates/question_edit.html:19
-#: forum/skins/default/templates/question_edit.html:22
+#: forum/skins/default/templates/answer_edit.html:20
+#: forum/skins/default/templates/answer_edit.html:23
+#: forum/skins/default/templates/ask.html:27
+#: forum/skins/default/templates/ask.html:30
+#: forum/skins/default/templates/question.html:47
+#: forum/skins/default/templates/question.html:50
+#: forum/skins/default/templates/question_edit.html:20
+#: forum/skins/default/templates/question_edit.html:23
 #: forum/skins/nuxeo/templates/answer_edit.html:19
 #: forum/skins/nuxeo/templates/answer_edit.html:22
 #: forum/skins/nuxeo/templates/ask.html:45
@@ -3235,10 +3235,10 @@ msgstr "Muokkaa vastausta"
 msgid "hide preview"
 msgstr "piilota esikatselu"
 
-#: forum/skins/default/templates/answer_edit.html:22
-#: forum/skins/default/templates/ask.html:29
-#: forum/skins/default/templates/question.html:49
-#: forum/skins/default/templates/question_edit.html:22
+#: forum/skins/default/templates/answer_edit.html:23
+#: forum/skins/default/templates/ask.html:30
+#: forum/skins/default/templates/question.html:50
+#: forum/skins/default/templates/question_edit.html:23
 #: forum/skins/nuxeo/templates/answer_edit.html:22
 #: forum/skins/nuxeo/templates/ask.html:48
 #: forum/skins/nuxeo/templates/question.html:42
@@ -3246,8 +3246,8 @@ msgstr "piilota esikatselu"
 msgid "show preview"
 msgstr "näytä esikatselu"
 
-#: forum/skins/default/templates/answer_edit.html:62
-#: forum/skins/default/templates/question_edit.html:91
+#: forum/skins/default/templates/answer_edit.html:63
+#: forum/skins/default/templates/question_edit.html:92
 #: forum/skins/default/templates/question_retag.html:40
 #: forum/skins/default/templates/revisions.html:38
 #: forum/skins/nuxeo/templates/answer_edit.html:62
@@ -3257,8 +3257,8 @@ msgstr "näytä esikatselu"
 msgid "back"
 msgstr "palaa takaisin"
 
-#: forum/skins/default/templates/answer_edit.html:68
-#: forum/skins/default/templates/question_edit.html:97
+#: forum/skins/default/templates/answer_edit.html:69
+#: forum/skins/default/templates/question_edit.html:98
 #: forum/skins/default/templates/revisions.html:54
 #: forum/skins/nuxeo/templates/answer_edit.html:67
 #: forum/skins/nuxeo/templates/question_edit.html:96
@@ -3266,17 +3266,17 @@ msgstr "palaa takaisin"
 msgid "revision"
 msgstr "versio"
 
-#: forum/skins/default/templates/answer_edit.html:71
-#: forum/skins/default/templates/question_edit.html:101
+#: forum/skins/default/templates/answer_edit.html:72
+#: forum/skins/default/templates/question_edit.html:102
 #: forum/skins/nuxeo/templates/answer_edit.html:70
 #: forum/skins/nuxeo/templates/question_edit.html:100
 msgid "select revision"
 msgstr "näytä historia"
 
-#: forum/skins/default/templates/answer_edit.html:78
-#: forum/skins/default/templates/ask.html:130
-#: forum/skins/default/templates/question.html:232
-#: forum/skins/default/templates/question_edit.html:118
+#: forum/skins/default/templates/answer_edit.html:79
+#: forum/skins/default/templates/ask.html:131
+#: forum/skins/default/templates/question.html:233
+#: forum/skins/default/templates/question_edit.html:119
 #: forum/skins/nuxeo/templates/answer_edit.html:77
 #: forum/skins/nuxeo/templates/ask.html:132
 #: forum/skins/nuxeo/templates/question.html:234
@@ -3284,10 +3284,10 @@ msgstr "näytä historia"
 msgid "Toggle the real time Markdown editor preview"
 msgstr "Kytke automaattinen esikatselu päälle tai pois päältä."
 
-#: forum/skins/default/templates/answer_edit.html:78
-#: forum/skins/default/templates/ask.html:130
-#: forum/skins/default/templates/question.html:233
-#: forum/skins/default/templates/question_edit.html:118
+#: forum/skins/default/templates/answer_edit.html:79
+#: forum/skins/default/templates/ask.html:131
+#: forum/skins/default/templates/question.html:234
+#: forum/skins/default/templates/question_edit.html:119
 #: forum/skins/nuxeo/templates/answer_edit.html:77
 #: forum/skins/nuxeo/templates/ask.html:132
 #: forum/skins/nuxeo/templates/question.html:235
@@ -3295,8 +3295,8 @@ msgstr "Kytke automaattinen esikatselu päälle tai pois päältä."
 msgid "toggle preview"
 msgstr "näytä/piilota esikatselu"
 
-#: forum/skins/default/templates/answer_edit.html:102
-#: forum/skins/default/templates/question_edit.html:154
+#: forum/skins/default/templates/answer_edit.html:103
+#: forum/skins/default/templates/question_edit.html:155
 #: forum/skins/default/templates/question_retag.html:62
 #: forum/skins/nuxeo/templates/answer_edit.html:101
 #: forum/skins/nuxeo/templates/question_edit.html:153
@@ -3304,11 +3304,11 @@ msgstr "näytä/piilota esikatselu"
 msgid "Save edit"
 msgstr "Tallenna"
 
-#: forum/skins/default/templates/answer_edit.html:103
+#: forum/skins/default/templates/answer_edit.html:104
 #: forum/skins/default/templates/base_content.html:44
 #: forum/skins/default/templates/close.html:30
 #: forum/skins/default/templates/feedback.html:67
-#: forum/skins/default/templates/question_edit.html:155
+#: forum/skins/default/templates/question_edit.html:156
 #: forum/skins/default/templates/question_retag.html:63
 #: forum/skins/default/templates/reopen.html:30
 #: forum/skins/default/templates/users/edit.html:100
@@ -3356,18 +3356,18 @@ msgid "see frequently asked questions"
 msgstr "sivuston ohjeet"
 
 #: forum/skins/default/templates/ask.html:4
-#: forum/skins/default/templates/ask.html:92
+#: forum/skins/default/templates/ask.html:93
 #: forum/skins/nuxeo/templates/ask.html:4
 #: forum/skins/nuxeo/templates/ask.html:112
 msgid "Ask a question"
 msgstr "Uusi kysymys"
 
-#: forum/skins/default/templates/ask.html:100
+#: forum/skins/default/templates/ask.html:101
 #: forum/skins/nuxeo/templates/ask.html:165
 msgid "You are welcome to start submitting your question anonymously."
 msgstr "Voit aloittaa kysymyksesi kirjoittamisen heti."
 
-#: forum/skins/default/templates/ask.html:101
+#: forum/skins/default/templates/ask.html:102
 #: forum/skins/nuxeo/templates/ask.html:166
 msgid ""
 "\n"
@@ -3381,12 +3381,12 @@ msgstr ""
 "Kysymystä lähettäessäsi sinun täytyy kuitenkin kirjautua sisään. Kysymys "
 "säilyy muistissa sillä aikaa, kun kirjaudut tai luot uuden tunnuksen."
 
-#: forum/skins/default/templates/ask.html:105
+#: forum/skins/default/templates/ask.html:106
 #: forum/skins/nuxeo/templates/ask.html:170
 msgid "and validate your email."
 msgstr "ja varmennat sähköpostiosoitteesi."
 
-#: forum/skins/default/templates/ask.html:110
+#: forum/skins/default/templates/ask.html:111
 #: forum/skins/nuxeo/templates/ask.html:175
 msgid ""
 "Remember, your question will not be published until you validate your email."
@@ -3394,24 +3394,24 @@ msgstr ""
 "Muista, että kysymystäsi ei julkaista ennen kuin varmennat "
 "sähköpostiosoitteesi."
 
-#: forum/skins/default/templates/ask.html:111
+#: forum/skins/default/templates/ask.html:112
 #: forum/skins/default/templates/users/info.html:98
 #: forum/skins/nuxeo/templates/ask.html:176
 #: forum/skins/nuxeo/templates/users/info.html:55
 msgid "Send me a validation link."
 msgstr "Lähetä varmistussähköposti"
 
-#: forum/skins/default/templates/ask.html:146
+#: forum/skins/default/templates/ask.html:147
 #: forum/skins/nuxeo/templates/ask.html:148
 msgid "(required)"
 msgstr "(vaaditaan)"
 
-#: forum/skins/default/templates/ask.html:162
+#: forum/skins/default/templates/ask.html:163
 #: forum/skins/nuxeo/templates/ask.html:182
 msgid "Login/signup to post your question"
 msgstr "Kirjaudu lähettääksesi kysymyksen"
 
-#: forum/skins/default/templates/ask.html:164
+#: forum/skins/default/templates/ask.html:165
 #: forum/skins/nuxeo/templates/ask.html:184
 msgid "Ask your question"
 msgstr "Lähetä kysymys"
@@ -4188,7 +4188,7 @@ msgstr ""
 "Sivuston yksityisyyskäytäntöjä voidaan tarvittaessa muuttaa. Ylläpito "
 "ilmoittaa tällöin muutoksista viestijärjestelmän kautta."
 
-#: forum/skins/default/templates/question.html:118
+#: forum/skins/default/templates/question.html:119
 #: forum/skins/default/templates/sidebar/recent_tags.html:11
 #: forum/skins/nuxeo/templates/question.html:117
 #: forum/skins/nuxeo/templates/sidebar/recent_tags.html:8
@@ -4196,51 +4196,51 @@ msgstr ""
 msgid "see questions tagged '%(tagname)s'"
 msgstr "näytä avainsanalla %(tagname)s merkityt kysymykset"
 
-#: forum/skins/default/templates/question.html:137
+#: forum/skins/default/templates/question.html:138
 #: forum/skins/nuxeo/templates/question.html:135
 #, python-format
 msgid ""
 "The question has been closed for the following reason \"%(close_reason)s\" by"
 msgstr "Tämän kysymyksen sulki syystä \"%(close_reason)s\""
 
-#: forum/skins/default/templates/question.html:148
+#: forum/skins/default/templates/question.html:149
 #, python-format
 msgid "One Answer:"
 msgid_plural "%(counter)s Answers:"
 msgstr[0] "Yksi vastaus:"
 msgstr[1] "%(counter)s vastausta:"
 
-#: forum/skins/default/templates/question.html:198
+#: forum/skins/default/templates/question.html:199
 #: forum/skins/nuxeo/templates/question.html:200
 msgid "Your answer"
 msgstr "Sinun vastauksesi"
 
-#: forum/skins/default/templates/question.html:200
+#: forum/skins/default/templates/question.html:201
 #: forum/skins/nuxeo/templates/question.html:202
 msgid "Be the first one to answer this question!"
 msgstr "Olet ensimmäinen, joka vastaa tähän kysymykseen!"
 
-#: forum/skins/default/templates/question.html:265
+#: forum/skins/default/templates/question.html:266
 #: forum/skins/nuxeo/templates/question.html:267
 msgid "Login/Signup to Post Your Answer"
 msgstr "Kirjaudu lähettääksesi vastauksesi"
 
-#: forum/skins/default/templates/question.html:268
+#: forum/skins/default/templates/question.html:269
 #: forum/skins/nuxeo/templates/question.html:270
 msgid "Answer Your Own Question"
 msgstr "Vastaa omaan kysymykseesi"
 
-#: forum/skins/default/templates/question.html:270
+#: forum/skins/default/templates/question.html:271
 #: forum/skins/nuxeo/templates/question.html:272
 msgid "Answer the question"
 msgstr "Vastaa kysymykseen"
 
-#: forum/skins/default/templates/question.html:292
+#: forum/skins/default/templates/question.html:293
 #: forum/skins/nuxeo/templates/question.html:294
 msgid "Question tags"
 msgstr "Kysymyksen avainsanat"
 
-#: forum/skins/default/templates/question.html:298
+#: forum/skins/default/templates/question.html:299
 #: forum/skins/default/templates/question_summary_list_roll.html:54
 #: forum/skins/default/templates/tags.html:45
 #: forum/skins/default/templates/question_list/item.html:31
@@ -4251,7 +4251,7 @@ msgstr "Kysymyksen avainsanat"
 msgid "see questions tagged"
 msgstr "Näytä avainsanalla "
 
-#: forum/skins/default/templates/question.html:298
+#: forum/skins/default/templates/question.html:299
 #: forum/skins/default/templates/question_summary_list_roll.html:54
 #: forum/skins/default/templates/tags.html:45
 #: forum/skins/nuxeo/templates/question.html:300
@@ -4260,33 +4260,33 @@ msgstr "Näytä avainsanalla "
 msgid "using tags"
 msgstr " merkityt kysymykset."
 
-#: forum/skins/default/templates/question.html:303
+#: forum/skins/default/templates/question.html:304
 #: forum/skins/nuxeo/templates/question.html:305
 msgid "question asked"
 msgstr "kysytty"
 
-#: forum/skins/default/templates/question.html:306
+#: forum/skins/default/templates/question.html:307
 #: forum/skins/nuxeo/templates/question.html:308
 msgid "question was seen"
 msgstr "katsottu"
 
-#: forum/skins/default/templates/question.html:306
+#: forum/skins/default/templates/question.html:307
 #: forum/skins/nuxeo/templates/question.html:308
 msgid "times"
 msgstr "kertaa"
 
-#: forum/skins/default/templates/question.html:309
+#: forum/skins/default/templates/question.html:310
 #: forum/skins/nuxeo/templates/question.html:311
 msgid "last updated"
 msgstr "päivitetty"
 
-#: forum/skins/default/templates/question.html:315
+#: forum/skins/default/templates/question.html:316
 #: forum/skins/nuxeo/templates/question.html:317
 msgid "Related questions"
 msgstr "Samankaltaiset kysymykset"
 
 #: forum/skins/default/templates/question_edit.html:5
-#: forum/skins/default/templates/question_edit.html:91
+#: forum/skins/default/templates/question_edit.html:92
 #: forum/skins/nuxeo/templates/question_edit.html:5
 #: forum/skins/nuxeo/templates/question_edit.html:91
 msgid "Edit question"
@@ -6676,7 +6676,7 @@ msgstr[1] ""
 "                <span class=\"count\">%(counter)s</span> kysymystä\n"
 "                "
 
-#: forum/skins/default/templates/users/stats.html:35
+#: forum/skins/default/templates/users/stats.html:37
 #: forum/skins/nuxeo/templates/users/stats.html:35
 #, python-format
 msgid ""
@@ -6696,18 +6696,18 @@ msgstr[1] ""
 "                <span class=\"count\">%(counter)s</span> vastausta\n"
 "                "
 
-#: forum/skins/default/templates/users/stats.html:49
+#: forum/skins/default/templates/users/stats.html:51
 #: forum/skins/nuxeo/templates/users/stats.html:49
 #, python-format
 msgid "the answer has been voted for %(vote_count)s times"
 msgstr "Vastaus on saanut %(vote_count)s ääntä"
 
-#: forum/skins/default/templates/users/stats.html:49
+#: forum/skins/default/templates/users/stats.html:51
 #: forum/skins/nuxeo/templates/users/stats.html:49
 msgid "this answer has been selected as correct"
 msgstr "ja kysyjä on hyväksynyt sen"
 
-#: forum/skins/default/templates/users/stats.html:67
+#: forum/skins/default/templates/users/stats.html:72
 #: forum/skins/nuxeo/templates/users/stats.html:67
 #, python-format
 msgid ""
@@ -6727,27 +6727,27 @@ msgstr[1] ""
 "                    <span class=\"count\">%(cnt)s</span> ääntä\n"
 "                "
 
-#: forum/skins/default/templates/users/stats.html:78
+#: forum/skins/default/templates/users/stats.html:83
 #: forum/skins/nuxeo/templates/users/stats.html:78
 msgid "thumb up"
 msgstr "plusääni"
 
-#: forum/skins/default/templates/users/stats.html:79
+#: forum/skins/default/templates/users/stats.html:84
 #: forum/skins/nuxeo/templates/users/stats.html:79
 msgid "user has voted up this many times"
 msgstr "Käyttäjän antamat plusäänet yhteensä."
 
-#: forum/skins/default/templates/users/stats.html:83
+#: forum/skins/default/templates/users/stats.html:88
 #: forum/skins/nuxeo/templates/users/stats.html:83
 msgid "thumb down"
 msgstr "miinusääni"
 
-#: forum/skins/default/templates/users/stats.html:84
+#: forum/skins/default/templates/users/stats.html:89
 #: forum/skins/nuxeo/templates/users/stats.html:84
 msgid "user voted down this many times"
 msgstr "Käyttäjän antamat miinusäänet yhteensä."
 
-#: forum/skins/default/templates/users/stats.html:93
+#: forum/skins/default/templates/users/stats.html:98
 #: forum/skins/nuxeo/templates/users/stats.html:93
 #, python-format
 msgid ""
@@ -6767,7 +6767,7 @@ msgstr[1] ""
 "                    <span class=\"count\">%(counter)s</span> avainsanaa\n"
 "                "
 
-#: forum/skins/default/templates/users/stats.html:107
+#: forum/skins/default/templates/users/stats.html:112
 #: forum/skins/nuxeo/templates/users/stats.html:107
 #, python-format
 msgid ""
@@ -6776,7 +6776,7 @@ msgstr ""
 "Katso avainsanalla '%(tag_name)s' merkityt kysymykset, joihin %(view_user)s "
 "on osallistunut."
 
-#: forum/skins/default/templates/users/stats.html:122
+#: forum/skins/default/templates/users/stats.html:127
 #: forum/skins/nuxeo/templates/users/stats.html:122
 #, python-format
 msgid ""
