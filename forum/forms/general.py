@@ -126,6 +126,32 @@ class UserEmailField(forms.EmailField):
         else:
             return email 
 
+class UserRealNameField(StrippedNonEmptyCharField):
+    def __init__(self, db_model=User, db_field='real_name', must_exist=True, skip_clean=False, label=_('Your real name'),**kw):
+        self.must_exist = must_exist
+        self.skip_clean = skip_clean
+        self.db_model = db_model
+        self.db_field = db_field
+        error_messages={'required':_('Real name is required')
+                    }
+        if 'error_messages' in kw:
+            error_messages.update(kw['error_messages'])
+            del kw['error_messages']
+        super(UserRealNameField,self).__init__(max_length=100,
+                widget=forms.TextInput(attrs=login_form_widget_attrs),
+                label=label,
+                error_messages=error_messages,
+                **kw
+                )
+
+    def clean(self, real_name):
+        if self.skip_clean == True:
+            return real_name
+        try:
+            return super(UserRealNameField, self).clean(real_name)
+        except forms.ValidationError:
+            raise forms.ValidationError(self.error_messages['required'])
+
 class SetPasswordForm(forms.Form):
     password1 = forms.CharField(widget=forms.PasswordInput(attrs=login_form_widget_attrs),
                                 label=_('choose password'),

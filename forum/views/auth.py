@@ -157,7 +157,7 @@ def external_register(request):
         form1 = SimpleRegistrationForm(request.POST)
 
         if form1.is_valid():
-            user_ = User(username=form1.cleaned_data['username'], email=form1.cleaned_data['email'])
+            user_ = User(username=form1.cleaned_data['username'], email=form1.cleaned_data['email'], real_name=form1.cleaned_data['real_name'])
             user_.email_isvalid = request.session.get('auth_validated_email', '') == form1.cleaned_data['email']
             user_.set_unusable_password()
 
@@ -208,6 +208,7 @@ def external_register(request):
 
         username = user_data.get('username', '')
         email = user_data.get('email', '')
+        real_name = user_data.get('real_name', '')
 
         if email:
             request.session['auth_validated_email'] = email
@@ -216,6 +217,7 @@ def external_register(request):
         'next': '/',
         'username': username,
         'email': email,
+        'real_name': real_name,
         })
 
     provider_context = AUTH_PROVIDERS[request.session['auth_provider']].context

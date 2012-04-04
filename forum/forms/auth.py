@@ -1,4 +1,4 @@
-from general import NextUrlField,  UserNameField,  UserEmailField, SetPasswordForm
+from general import NextUrlField,  UserNameField,  UserEmailField, UserRealNameField, SetPasswordForm
 from forum.models import Question, User
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
@@ -10,6 +10,7 @@ class SimpleRegistrationForm(forms.Form):
     next = NextUrlField()
     username = UserNameField()
     email = UserEmailField()
+    real_name = UserRealNameField()
 
 class TemporaryLoginRequestForm(forms.Form):
     def __init__(self, data=None):

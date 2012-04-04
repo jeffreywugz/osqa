@@ -50,6 +50,13 @@
                 {% endif %}
                 {{ form1.email }}
             </div>
+            <div class="form-row-vertical margin-bottom">
+                <label for="id_real_name">{{ form1.real_name.label }}</label>
+                {% if form1.real_name.errors %}
+                    <p class="error">{{ form1.real_name.errors|join:", " }}</p>
+                {% endif %}
+                {{ form1.real_name }}
+            </div>
             {% if form1.password1 %}
                 <div class="form-row-vertical margin-bottom">
                     <label for="password1_id">{{ form1.password1.label }}</label>
