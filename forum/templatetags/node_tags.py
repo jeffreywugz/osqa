@@ -192,8 +192,7 @@ def post_controls(post, user):
 
     return {'controls': controls, 'menu': menu, 'post': post, 'user': user}
 
-@register.inclusion_tag('node/comments.html')
-def comments(post, user):
+def _comments(post, user):
     all_comments = post.comments.filter_state(deleted=False)\
                                 .order_by('-added_at' if settings.SHOW_LATEST_COMMENTS_FIRST else 'added_at')
 
@@ -250,6 +249,9 @@ def comments(post, user):
         'user': user,
     }
 
+@register.inclusion_tag('node/comments.html')
+def comments(post, user):
+    return _comments(post, user)
 
 @register.inclusion_tag("node/contributors_info.html")
 def contributors_info(node, verb=None):
