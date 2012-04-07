@@ -7,7 +7,7 @@ from django.utils.translation import ugettext as _
 from django.utils.encoding import smart_unicode
 from general import NextUrlField, UserNameField
 
-from forum import settings
+from forum import settings, REQUEST_HOLDER
 
 from forum.modules import call_all_handlers
 
@@ -307,7 +307,7 @@ class EditUserForm(forms.Form):
 
     def __init__(self, user, *args, **kwargs):
         super(EditUserForm, self).__init__(*args, **kwargs)
-        if settings.EDITABLE_SCREEN_NAME:
+        if settings.EDITABLE_SCREEN_NAME or (REQUEST_HOLDER.request.user.is_authenticated() and REQUEST_HOLDER.request.user.is_superuser):
             self.fields['username'] = UserNameField(label=_('Screen name'))
             self.fields['username'].initial = user.username
             self.fields['username'].user_instance = user

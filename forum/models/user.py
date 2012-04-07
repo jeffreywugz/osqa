@@ -165,8 +165,8 @@ class User(BaseModel, DjangoUser):
         #todo: temporary thing, for now lets just assume that the site owner will always be the first user of the application
         return self.id == 1
 
-    @property
-    def decorated_name(self):
+
+    def _decorated_name(self):
         username = smart_unicode(self.username)
 
         if len(username) > TRUNCATE_USERNAMES_LONGER_THAN and TRUNCATE_LONG_USERNAMES:
@@ -180,6 +180,10 @@ class User(BaseModel, DjangoUser):
                 return u"%s \u2666" % username
 
         return username
+
+    @property
+    def decorated_name(self):
+        return self._decorated_name()
 
     @property
     def last_activity(self):
