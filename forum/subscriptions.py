@@ -12,9 +12,17 @@ from django.db.models import Q, F
 def create_subscription_if_not_exists(question, user):
     try:
         subscription = QuestionSubscription.objects.get(question=question, user=user)
-    except:
+        return subscription
+    except QuestionSubscription.MultipleObjectsReturned:
+        pass
+    except QuestionSubscription.DoesNotExist:
         subscription = QuestionSubscription(question=question, user=user)
         subscription.save()
+        return subscription
+    except Exception, e:
+        logging.error(e)
+
+    return False
 
 def filter_subscribers(subscribers):
     subscribers = subscribers.exclude(is_active=False)
@@ -26,6 +34,9 @@ def filter_subscribers(subscribers):
 
 def question_posted(action, new):
     question = action.node
+
+    if not question.is_notifiable:
+        return
 
     subscribers = User.objects.filter(
             Q(subscription_settings__enable_notifications=True, subscription_settings__new_question='i') |
@@ -57,6 +68,11 @@ def answer_posted(action, new):
     answer = action.node
     question = answer.question
 
+    logging.error("Answer posted: %s" % str(answer.is_notifiable))
+
+    if not answer.is_notifiable or not question.is_notifiable:
+        return
+
     subscribers = question.subscribers.filter(
             subscription_settings__enable_notifications=True,
             subscription_settings__notify_answers=True,
@@ -75,6 +91,9 @@ AnswerAction.hook(answer_posted)
 def comment_posted(action, new):
     comment = action.node
     post = comment.parent
+
+    if not comment.is_notifiable or not post.is_notifiable:
+        return
 
     if post.__class__ == Question:
         question = post
@@ -105,6 +124,9 @@ CommentAction.hook(comment_posted)
 
 def answer_accepted(action, new):
     question = action.node.question
+
+    if not question.is_notifiable:
+        return
 
     subscribers = question.subscribers.filter(
             subscription_settings__enable_notifications=True,

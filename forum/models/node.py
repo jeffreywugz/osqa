@@ -330,6 +330,14 @@ class Node(BaseModel, NodeContent):
 
         return content
 
+    # Can be used to block subscription notifications for a specific node from a module
+    def _is_notifiable(self):
+        return True
+
+    @property
+    def is_notifiable(self):
+        return self._is_notifiable()
+
     @models.permalink
     def get_revisions_url(self):
         return ('revisions', (), {'id': self.id})

@@ -78,8 +78,11 @@ class RssQuestionFeed(BaseNodeFeed):
     def item_categories(self, item):
         return item.tagname_list()  
 
+    def _items(self):
+       return self._question_list
+
     def items(self):
-       return self._question_list[:30]
+        return self._items()[:30]
 
 class RssAnswerFeed(BaseNodeFeed):
     if old_version:
@@ -94,13 +97,16 @@ class RssAnswerFeed(BaseNodeFeed):
         self._question = question
         self._include_comments = include_comments
 
-    def items(self):
+    def _items(self):
         if self._include_comments:
             qs = self._question.all_children
         else:
             qs = self._question.answers
 
-        return qs.filter_state(deleted=False).order_by('-added_at')[:30]
+        return qs.filter_state(deleted=False).order_by('-added_at')
+
+    def items(self):
+        return self._items()[:30]
 
     def item_title(self, item):
         if item.node_type == "answer":
