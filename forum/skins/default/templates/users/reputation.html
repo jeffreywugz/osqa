@@ -21,6 +21,20 @@
         });
 
         </script>
+
+        <style type="text/css">
+            div.positiveReputation {
+                float: left;
+                min-width: 20px;
+                color: green;
+                padding-right: 5px;
+            }
+            div.negativeReputation {
+                float: left;
+                min-width: 20px;
+                color: red;
+            }
+        </style>
 {% endblock %}
 {% block usercontent %}
         <div style="padding:5px;font-size:13px;">
@@ -31,8 +45,8 @@
                 {% for rep in reputation %}
                 <p style="clear:both">
                     <div style="float:left;text-align:right;font-family:arial;font-weight:bold;background:#eee;padding:2px 10px 2px 10px;margin-right:5px">
-                        <div style="float:left;width:20px;color:green;padding-right:5px">{{ rep.positive }}</div>
-                        <div style="float:left;width:20px;color:red">{{ rep.negative }}</div>
+                        <div class="positiveReputation">{{ rep.positive }}</div>
+                        <div class="negativeReputation">{{ rep.negative }}</div>
                         
                     </div>
                     {% activity_item rep.action request.user %}<br/>
