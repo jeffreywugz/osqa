@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from base import *
-import logging
 import re
 from tag import Tag
 
@@ -258,7 +257,7 @@ class Node(BaseModel, NodeContent):
     @classmethod
     def _generate_cache_key(cls, key, group="node"):
         return super(Node, cls)._generate_cache_key(key, group)
-        
+
     @classmethod
     def get_type(cls):
         return cls.__name__.lower()
@@ -450,13 +449,15 @@ class Node(BaseModel, NodeContent):
 
                 if not self.nis.deleted:
                     tag.add_to_usage_count(1)
+                    tag.save()
 
             if not self.nis.deleted:
                 for name in tag_changes['removed']:
                     try:
                         tag = Tag.objects.get(name=name)
                         tag.add_to_usage_count(-1)
-                    except Tag.DoesNotExist:
+                        tag.save()
+                    except:
                         pass
 
             return True
@@ -470,13 +471,16 @@ class Node(BaseModel, NodeContent):
         if action:
             for tag in self.tags.all():
                 tag.add_to_usage_count(-1)
+                tag.save()
         else:
             for tag in Tag.objects.filter(name__in=self.tagname_list()):
                 tag.add_to_usage_count(1)
+                tag.save()
 
     def delete(self, *args, **kwargs):
         for tag in self.tags.all():
             tag.add_to_usage_count(-1)
+            tag.save()
 
         self.active_revision = None
         self.save()
