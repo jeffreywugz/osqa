@@ -32,10 +32,12 @@ class Tag(BaseModel):
         return force_unicode(self.name)
 
     def add_to_usage_count(self, value):
-        if self.used_count + value < 0:
+        if int(self.used_count + value) < 0:
             self.used_count = 0
         else:
-            self.used_count = models.F('used_count') + value
+            self.used_count += value
+
+        self.save()
 
     def cache_key(self):
         return self._generate_cache_key(Tag.safe_cache_name(self.name))
