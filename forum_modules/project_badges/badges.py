@@ -11,10 +11,10 @@ class BugBuster(AbstractBadge):
     listen_to = (VoteUpAction, )
 
     def award_to(self, action):
-        if action.node.node_type == "question" and action.node.score == settings.BUG_BUSTER_VOTES_UP:
+        if action.node.node_type == "question" and int(action.node.score) == int(settings.BUG_BUSTER_VOTES_UP):
             try:
                 bug = Tag.objects.get(name="bug")
                 if bug in action.node.tags.all():
                     return action.node.author
-            except:
+            except Exception:
                 pass
