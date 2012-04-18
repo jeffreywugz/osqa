@@ -241,14 +241,20 @@ def export_upfiles(tf):
     folder = str(settings.UPFILES_FOLDER)
 
     if os.path.exists(folder):
-        tf.add(folder, arcname='/upfiles')
+        if isinstance(tf, zipfile.ZipFile):
+            tf.write(folder, arcname='/upfiles')
+        else:
+            tf.add(folder, arcname='/upfiles')
 
 
 def export_skinsfolder(tf):
     folder = djsettings.TEMPLATE_DIRS[0]
 
     if os.path.exists(folder):
-        tf.add(folder, arcname='/skins')
+        if isinstance(tf, zipfile.ZipFile):
+            tf.write(folder, arcname='/skins')
+        else:
+            tf.add(folder, arcname='/skins')
 
 
 def export(options, user):
@@ -425,10 +431,13 @@ def export_users(u, el, anon_data):
     rejected = el.add('rejectedTags')
 
     for m in u.tag_selections.all():
-        if m.reason == 'good':
-            watched.add('tag', m.tag.name)
-        else:
-            rejected.add('tag', m.tag.name)
+        try:
+            if m.reason == 'good':
+                watched.add('tag', m.tag.name)
+            else:
+                rejected.add('tag', m.tag.name)
+        except Tag.DoesNotExist:
+            pass
 
     
 
