@@ -1,4 +1,6 @@
 from django.utils.translation import ugettext as _
+from django.utils.encoding import smart_unicode
+
 from utils import PickledObjectField
 from threading import Thread
 from forum.utils import html
@@ -213,10 +215,10 @@ class ActionProxy(Action):
     __metaclass__ = ActionProxyMetaClass
 
     def friendly_username(self, viewer, user):
-        return (viewer == user) and _('You') or user.username
+        return (viewer == user) and _('You') or smart_unicode(user.username)
 
     def friendly_ownername(self, owner, user):
-        return (owner == user) and _('your') or user.username
+        return (owner == user) and _('your') or smart_unicode(user.username)
 
     def viewer_or_user_verb(self, viewer, user, viewer_verb, user_verb):
         return (viewer == user) and viewer_verb or user_verb
