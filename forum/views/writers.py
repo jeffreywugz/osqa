@@ -156,7 +156,8 @@ def _retag_question(request, question):
         #'tags' : _get_tags_cache_json(),
     }, context_instance=RequestContext(request))
 
-def _edit_question(request, question, template='question_edit.html', summary='', action_class=ReviseAction, allow_rollback=True, url_getter=lambda q: q.get_absolute_url()):
+def _edit_question(request, question, template='question_edit.html', summary='', action_class=ReviseAction,
+                   allow_rollback=True, url_getter=lambda q: q.get_absolute_url(), additional_context=None):
     if request.method == 'POST':
         revision_form = RevisionForm(question, data=request.POST)
         revision_form.is_valid()
@@ -188,11 +189,16 @@ def _edit_question(request, question, template='question_edit.html', summary='',
         revision_form = RevisionForm(question)
         form = EditQuestionForm(question, request.user, initial={'summary': summary})
 
-    return render_to_response(template, {
+    context = {
         'question': question,
         'revision_form': revision_form,
         'form' : form,
-    }, context_instance=RequestContext(request))
+    }
+
+    if not (additional_context is None):
+        context.update(additional_context)
+
+    return render_to_response(template, context, context_instance=RequestContext(request))
 
 
 def edit_answer(request, id):
