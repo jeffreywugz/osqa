@@ -613,7 +613,11 @@ def award_points(request, user_id, answer_id):
         raise AnonymousNotAllowedException(_('award'))
 
     if not request.POST:
-        return render_to_response("node/award_points.html", { 'user' : user, 'awarded_user' : awarded_user, })
+        return render_to_response("node/award_points.html", {
+            'user' : user,
+            'awarded_user' : awarded_user,
+            'reputation_to_comment' : str(settings.REP_TO_COMMENT)
+        })
     else:
         points = int(request.POST['points'])
 

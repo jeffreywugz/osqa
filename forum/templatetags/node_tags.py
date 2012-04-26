@@ -105,7 +105,7 @@ def post_controls(post, user):
                                      title=_("answer permanent link"), command=True, withprompt=True, copy=True))
 
         # Users should be able to award points for an answer. Users cannot award their own answers
-        if user != post.author and user.is_authenticated():
+        if user != post.author and user.is_authenticated() and user.reputation > 1:
             controls.append(post_control(_("award points"), reverse('award_points', kwargs={'user_id' : post.author.id,
                                          'answer_id' : post.id}), title=_("award points to %s") % smart_unicode(post.author.username),
                                          command=True, withprompt=True))

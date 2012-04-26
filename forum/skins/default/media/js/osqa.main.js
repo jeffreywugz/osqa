@@ -173,7 +173,7 @@ function show_dialog (extern) {
         $diag.fadeOut('fast', function() {
             $diag.remove();
         });
-    }
+    };
 
     var options = {
         extra_class: '',
@@ -201,7 +201,7 @@ function show_dialog (extern) {
         options.pos = {x: options.event.pageX, y: options.event.pageY};
     }
 
-    var html = '<div class="dialog ' + options.extra_class + '" style="display: none;">'
+    var html = '<div class="dialog ' + options.extra_class + '" style="display: none; z-index: 999;">'
              + '<div class="dialog-content">' + options.html + '</div><div class="dialog-buttons">';
 
     if (options.show_no) {
@@ -263,13 +263,19 @@ function show_dialog (extern) {
         message.style.visibility = "visible";
     });
 
-    $dialog.find('.dialog-no').click(function() {
-        default_close_function($dialog);
-    });
-
     $dialog.find('.dialog-yes').click(function() {
         options.yes_callback($dialog);
     });
+
+    if (options.hasOwnProperty("no_callback")) {
+        $dialog.find('.dialog-no:first-child').click(function() {
+            options.no_callback($dialog);
+        });
+    } else {
+        $dialog.find('.dialog-no:first-child').click(function() {
+            default_close_function($dialog);
+        });
+    }
 
     if (options.close_on_clickoutside) {
         $dialog.one('clickoutside', function() {

@@ -1,15 +1,15 @@
 {% load i18n %}
 
 <p>
-{% blocktrans %}
-If you like this answer you can award {{ awarded_user }} with reputation points.
-{% endblocktrans %}
+    {% blocktrans %}
+    If you like this answer you can award {{ awarded_user }} with reputation points.
+    {% endblocktrans %}
 </p>
 
 <p>
-{% blocktrans %}
-Use the slider below or the input field to choose the amount of points you would like to give.
-{% endblocktrans %}
+    {% blocktrans %}
+    Use the slider below or the input field to choose the amount of points you would like to give.
+    {% endblocktrans %}
 </p>
 
 <table>
@@ -22,18 +22,51 @@ Use the slider below or the input field to choose the amount of points you would
 <div class="award_points_slider"></div>
 
 <script>
-$('.award_points_slider').slider({
-    min: 1, max: {{ user.reputation }},
-    slide: function(evt, ui) {
-        $('#points_input').val(ui.value)
-    }
-});
+    var awardPointsNotified = false;
+    var reputation_to_comment = {{ reputation_to_comment }};
+    var user_reputation = {{ user.reputation }};
 
-$('#points_input').bind('change keydown', function() {
-    if ($(this).val() > {{ user.reputation }}) {
-        $(this).attr('value', {{ user.reputation }})
+    function points_award_confirm(reputation, event) {
+        var message = '<div style="max-width: 300px !important; text-align: left;">';
+        message += "{% blocktrans %}Your karma points will be below the minimum reputation to comment. Are you sure you want to award points?{% endblocktrans %}";
+        message += "</div>";
+
+        if ((user_reputation - reputation) < reputation_to_comment && !awardPointsNotified) {
+            awardPointsNotified = true;
+
+            var doptions = {
+                html: message,
+                extra_class: 'confirm',
+                yes_text: messages.yes,
+                no_callback: function() {
+                    $(".dialog").fadeOut("fast", function() {
+                        $('.dialog').remove();
+                    })
+                },
+                show_no: true,
+                no_text: messages.no
+            }
+
+            doptions.event = event;
+            show_dialog(doptions);
+        }
+    }
+
+    $('.award_points_slider').slider({
+        min: 1, max: user_reputation,
+    slide: function(evt, ui) {
+        $('#points_input').val(ui.value);
+        points_award_confirm(Number(ui.value), evt)
+    }
+    });
+
+    $('#points_input').bind('change keydown', function(evt) {
+        if ($(this).val() > user_reputation) {
+        $(this).attr('value', user_reputation);
     }
     $('.award_points_slider').slider('option', 'value', $(this).val())
-})
+
+    points_award_confirm(Number($(this).val()), evt);
+    });
 
 </script>
