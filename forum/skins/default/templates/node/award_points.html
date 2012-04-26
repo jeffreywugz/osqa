@@ -38,11 +38,6 @@
                 html: message,
                 extra_class: 'confirm',
                 yes_text: messages.yes,
-                no_callback: function() {
-                    $(".dialog").fadeOut("fast", function() {
-                        $('.dialog').remove();
-                    })
-                },
                 show_no: true,
                 no_text: messages.no
             }

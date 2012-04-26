@@ -210,7 +210,8 @@ function show_dialog (extern) {
 
     html += '<button class="dialog-yes"' + copy_id + '>' + options.yes_text + '</button>' + '</div></div>';
 
-    $dialog = $(html);
+    var $dialog = $(html);
+
     $('body').append($dialog);
     var message = $('.dialog-content')[0];
     message.style.visibility = "hidden";
