@@ -83,7 +83,8 @@ class CachedQuerySet(models.query.QuerySet):
                 obj.cache()
             else:
                 obj = self.obj_from_datadict(obj)
-                obj.reset_original_state()
+
+            obj.reset_original_state()
 
             return obj
 
@@ -171,9 +172,10 @@ class CachedQuerySet(models.query.QuerySet):
         if to_return:
             for row in to_return:
                 if hasattr(row, 'leaf'):
-                    yield row.leaf
-                else:
-                    yield row
+                    row = row.leaf
+
+                row.reset_original_state()
+                yield row
 
     def _get_query_hash(self):
         return md5(unicode(self.query).encode("utf-8")).hexdigest()
