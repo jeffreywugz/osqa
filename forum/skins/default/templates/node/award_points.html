@@ -39,6 +39,12 @@
                 extra_class: 'confirm',
                 yes_text: messages.yes,
                 show_no: true,
+                no_callback: function() {
+                    $(".dialog").fadeOut("fast", function() {
+                    $('.dialog').remove();
+                    })
+                },
+
                 no_text: messages.no
             }
 
