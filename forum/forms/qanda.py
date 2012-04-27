@@ -180,7 +180,7 @@ class AskForm(forms.Form):
 
         self.fields['tags']   = TagNamesField(user)
         
-        if int(user.reputation) < settings.CAPTCHA_IF_REP_LESS_THAN and not (user.is_superuser or user.is_staff):
+        if not user.is_authenticated() or (int(user.reputation) < settings.CAPTCHA_IF_REP_LESS_THAN and not (user.is_superuser or user.is_staff)):
             spam_fields = call_all_handlers('create_anti_spam_field')
             if spam_fields:
                 spam_fields = dict(spam_fields)
@@ -201,7 +201,7 @@ class AnswerForm(forms.Form):
     def __init__(self, data=None, user=None, *args, **kwargs):
         super(AnswerForm, self).__init__(data, *args, **kwargs)
         
-        if int(user.reputation) < settings.CAPTCHA_IF_REP_LESS_THAN and not (user.is_superuser or user.is_staff):
+        if not user.is_authenticated() or (int(user.reputation) < settings.CAPTCHA_IF_REP_LESS_THAN and not (user.is_superuser or user.is_staff)):
             spam_fields = call_all_handlers('create_anti_spam_field')
             if spam_fields:
                 spam_fields = dict(spam_fields)
@@ -257,7 +257,7 @@ class EditQuestionForm(forms.Form):
         self.fields['tags'] = TagNamesField(user)
         self.fields['tags'].initial = revision.tagnames
 
-        if int(user.reputation) < settings.CAPTCHA_IF_REP_LESS_THAN and not (user.is_superuser or user.is_staff):
+        if not user.is_authenticated() or (int(user.reputation) < settings.CAPTCHA_IF_REP_LESS_THAN and not (user.is_superuser or user.is_staff)):
             spam_fields = call_all_handlers('create_anti_spam_field')
             if spam_fields:
                 spam_fields = dict(spam_fields)
@@ -283,7 +283,7 @@ class EditAnswerForm(forms.Form):
 
         self.fields['text'].initial = revision.body
 
-        if int(user.reputation) < settings.CAPTCHA_IF_REP_LESS_THAN and not (user.is_superuser or user.is_staff):
+        if not user.is_authenticated() or (int(user.reputation) < settings.CAPTCHA_IF_REP_LESS_THAN and not (user.is_superuser or user.is_staff)):
             spam_fields = call_all_handlers('create_anti_spam_field')
             if spam_fields:
                 spam_fields = dict(spam_fields)
