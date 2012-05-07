@@ -1,4 +1,5 @@
 from django.utils.translation import ungettext, ugettext as _
+from django.core.urlresolvers import reverse
 from django.db.models import F
 from forum.models.action import ActionProxy
 from forum.models import Award, Badge, ValidationHash, User
@@ -163,9 +164,10 @@ class AwardAction(ActionProxy):
         self.user.save()
 
         self.user.message_set.create(message=_(
-                """Congratulations, you have received a badge '%(badge_name)s'. Check out <a href=\"%(profile_url)s\">your profile</a>."""
-                ) %
-        dict(badge_name=award.badge.name, profile_url=self.user.get_profile_url()))
+                """Congratulations, you have received a badge '%(badge_name)s'. <a href="%(badges_url)s">Find out who has it, too</a>."""
+        ) % dict(
+            badge_name=award.badge.name,
+            badges_url=reverse("badges")))
 
     def cancel_action(self):
         award = self.award
