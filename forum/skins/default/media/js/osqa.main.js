@@ -197,8 +197,15 @@ function show_dialog (extern) {
         copy_id = ' id="copy_clip_button"'
     }
 
-    if (options.event != undefined) {
+    if (options.event != undefined && options.event.pageX != undefined && options.event.pageY != undefined) {
         options.pos = {x: options.event.pageX, y: options.event.pageY};
+    } else if (options.event.currentTarget != undefined) {
+        var el = jQuery("#" + options.event.currentTarget.id);
+        var position = el.offset();
+        options.pos = {
+            x: position.left,
+            y: position.top
+        }
     }
 
     var html = '<div class="dialog ' + options.extra_class + '" style="display: none; z-index: 999;">'

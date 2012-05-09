@@ -135,7 +135,11 @@ class Action(BaseModel):
         if isnew:
             if (self.node is None) or (not self.node.nis.wiki):
                 self.repute_users()
+
+        if isnew:
             self.process_action()
+
+        if isnew:
             self.trigger_hooks(threaded, True)
 
         return self

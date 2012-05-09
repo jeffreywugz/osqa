@@ -41,7 +41,7 @@
                 show_no: true,
                 no_callback: function() {
                     $(".dialog").fadeOut("fast", function() {
-                    $('.dialog').remove();
+                        $('.dialog').remove();
                     })
                 },
 
@@ -55,19 +55,21 @@
 
     $('.award_points_slider').slider({
         min: 1, max: user_reputation,
-    slide: function(evt, ui) {
-        $('#points_input').val(ui.value);
-        points_award_confirm(Number(ui.value), evt)
-    }
+        slide: function(evt, ui) {
+            $('#points_input').val(ui.value);
+            points_award_confirm(Number(ui.value), evt)
+        }
     });
 
-    $('#points_input').bind('change keydown', function(evt) {
+    $('#points_input').live('change keyup', function(evt) {
         if ($(this).val() > user_reputation) {
-        $(this).attr('value', user_reputation);
-    }
-    $('.award_points_slider').slider('option', 'value', $(this).val())
+            $(this).attr('value', user_reputation);
+        }
 
-    points_award_confirm(Number($(this).val()), evt);
+        points_award_confirm(Number($(this).val()), evt);
+
+        $('.award_points_slider').slider('option', 'value', $(this).val());
+
     });
 
 </script>
