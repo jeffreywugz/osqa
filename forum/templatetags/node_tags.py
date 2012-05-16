@@ -253,12 +253,13 @@ def _comments(post, user):
 def comments(post, user):
     return _comments(post, user)
 
-@register.inclusion_tag("node/contributors_info.html")
-def contributors_info(node, verb=None):
+@register.inclusion_tag("node/contributors_info.html", takes_context=True)
+def contributors_info(context, node, verb=None):
     return {
         'node_verb': verb and verb or ((node.node_type == "question") and _("asked") or (
                     (node.node_type == "answer") and _("answered") or _("posted"))),
         'node': node,
+        'context' : context
     }
 
 @register.inclusion_tag("node/reviser_info.html")
