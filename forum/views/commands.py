@@ -75,7 +75,7 @@ class CannotDoubleActionException(CommandException):
 
 @decorate.withfn(command)
 def vote_post(request, id, vote_type):
-    if not request.is_ajax():
+    if not request.method == 'POST':
         raise CommandException(_("Invalid request"))
 
 
