@@ -75,6 +75,10 @@ class CannotDoubleActionException(CommandException):
 
 @decorate.withfn(command)
 def vote_post(request, id, vote_type):
+    if not request.is_ajax():
+        raise CommandException(_("Invalid request"))
+
+
     post = get_object_or_404(Node, id=id).leaf
     user = request.user
 
