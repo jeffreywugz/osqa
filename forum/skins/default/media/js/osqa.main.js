@@ -731,14 +731,15 @@ function pickedTags(){
         var deleteTagLocally = function(){
             from_target[tagname].remove();
             delete from_target[tagname];
+            $(".tags.interesting").trigger('contentchanged');
         };
+
         if (send_ajax){
             sendAjax(tagname,reason,'remove',deleteTagLocally);
         }
         else {
             deleteTagLocally();
         }
-
     };
 
     var setupTagDeleteEvents = function(obj,tag_store,tagname,reason,send_ajax){
@@ -795,6 +796,8 @@ function pickedTags(){
                 to_tag_container.append(new_tag);
 
                 to_target[tagname] = new_tag;
+
+                to_tag_container.trigger('contentchanged');
             });
         }
     };
