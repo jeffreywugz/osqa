@@ -291,7 +291,7 @@ def send_validation_email(request):
         # We don't care if there are previous cashes in the database... In every case we have to create a new one
         hash = ValidationHash.objects.create_new(request.user, 'email', [request.user.email])
 
-        additional_get_params = urllib.urlencode(request.GET)
+        additional_get_params = urllib.urlencode(dict([k, v.encode('utf-8')] for k, v in request.GET.items()))
         send_template_email([request.user], "auth/mail_validation.html", {
             'validation_code': hash,
             'additional_get_params' : additional_get_params
@@ -409,7 +409,7 @@ def login_and_forward(request, user, forward=None, message=None):
         else:
             return manage_pending_data(request, _('save'), forward)
 
-    additional_get_params = urllib.urlencode(request.GET)
+    additional_get_params = urllib.urlencode(dict([k, v.encode('utf-8')] for k, v in request.GET.items()))
 
     parsed_forward = urlparse(forward)
 
