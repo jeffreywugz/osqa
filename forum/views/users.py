@@ -394,6 +394,9 @@ def user_favorites(request, user, **kwargs):
 
 @user_view('users/subscriptions.html', 'subscriptions', _('subscription'), _('subscriptions'), True, tabbed=False)
 def user_subscriptions(request, user, **kwargs):
+    return _user_subscriptions(request, user, **kwargs)
+
+def _user_subscriptions(request, user, **kwargs):
     enabled = True
 
     tab = request.GET.get('tab', "settings")
