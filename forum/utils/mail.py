@@ -69,8 +69,7 @@ def create_and_send_mail_messages(messages):
             msgRoot['Subject'] = Header(subject, 'utf-8')
             msgRoot['From'] = sender
 
-            to = Header(recipient.username, 'utf-8')
-            to.append('<%s>' % recipient.email)
+            to = Header(u"%s <%s>" % (recipient.username, recipient.email), 'utf-8')
             msgRoot['To'] = to
 
             if reply_to:
