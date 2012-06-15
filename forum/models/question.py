@@ -3,7 +3,7 @@ from tag import Tag
 from django.utils.translation import ugettext as _
 
 class QuestionManager(NodeManager):
-    def search(self, keywords):
+    def search(self, keywords, **kwargs):
         return False, self.filter(models.Q(title__icontains=keywords) | models.Q(body__icontains=keywords))
 
 class Question(Node):
