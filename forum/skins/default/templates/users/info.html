@@ -112,11 +112,13 @@
             </table>
         </td>
         <td width="380">
+            {% if not view_user.is_suspended %}
             <div class="user-about">
             {% if view_user.about %}
                 {{view_user.about|markdown}}
             {% endif %}
             </div>
+            {% endif %}
         </td>
     </tr>
 </table>
