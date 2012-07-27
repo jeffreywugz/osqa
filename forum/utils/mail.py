@@ -24,9 +24,9 @@ from forum.context import application_settings
 from forum.utils.html2text import HTML2Text
 from threading import Thread
 
-def send_template_email(recipients, template, context):
+def send_template_email(recipients, template, context, sender=None):
     t = loader.get_template(template)
-    context.update(dict(recipients=recipients, settings=settings))
+    context.update(dict(recipients=recipients, settings=settings, sender=sender))
     t.render(Context(context))
 
 def create_connection():
@@ -44,14 +44,20 @@ def create_connection():
     return connection
 
 
-def create_and_send_mail_messages(messages):
+def create_and_send_mail_messages(messages, sender_data=None):
     if not settings.EMAIL_HOST:
         return
 
     sender = Header(unicode(settings.APP_SHORT_NAME), 'utf-8')
-    sender.append('<%s>' % unicode(settings.DEFAULT_FROM_EMAIL))
-    sender = u'%s <%s>' % (unicode(settings.APP_SHORT_NAME), unicode(settings.DEFAULT_FROM_EMAIL))
-
+    
+    if sender_data == None:
+        sender.append('<%s>' % unicode(settings.DEFAULT_FROM_EMAIL))
+        sender = u'%s <%s>' % (unicode(settings.APP_SHORT_NAME), unicode(settings.DEFAULT_FROM_EMAIL))
+    else:
+        sender.append('<%s>' % unicode(sender_data['email']))
+        sender = u'%s <%s>' % (unicode(sender_data['name']), unicode(sender_data['email']))
+        
+    
     reply_to = unicode(settings.DEFAULT_REPLY_TO_EMAIL)
 
     try:
