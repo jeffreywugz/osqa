@@ -20,7 +20,7 @@ class MultiUserMailMessage(template.Node):
             self.nodelist.render(context)
             messages.append((recipient, context['subject'], context['htmlcontent'], context['textcontent'], context['embeddedmedia']))
         
-        create_and_send_mail_messages(messages,context['sender'])
+        create_and_send_mail_messages(messages, sender_data=context['sender'], reply_to=context['reply_to'])
 
 @register.tag
 def email(parser, token):

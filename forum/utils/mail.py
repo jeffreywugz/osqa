@@ -24,9 +24,9 @@ from forum.context import application_settings
 from forum.utils.html2text import HTML2Text
 from threading import Thread
 
-def send_template_email(recipients, template, context, sender=None):
+def send_template_email(recipients, template, context, sender=None, reply_to = None):
     t = loader.get_template(template)
-    context.update(dict(recipients=recipients, settings=settings, sender=sender))
+    context.update(dict(recipients=recipients, settings=settings, sender=sender, reply_to=reply_to))
     t.render(Context(context))
 
 def create_connection():
@@ -44,7 +44,7 @@ def create_connection():
     return connection
 
 
-def create_and_send_mail_messages(messages, sender_data=None):
+def create_and_send_mail_messages(messages, sender_data=None, reply_to=None):
     if not settings.EMAIL_HOST:
         return
 
@@ -58,7 +58,10 @@ def create_and_send_mail_messages(messages, sender_data=None):
         sender = u'%s <%s>' % (unicode(sender_data['name']), unicode(sender_data['email']))
         
     
-    reply_to = unicode(settings.DEFAULT_REPLY_TO_EMAIL)
+    if reply_to == None:
+        reply_to = unicode(settings.DEFAULT_REPLY_TO_EMAIL)
+    else:
+        reply_to = unicode(reply_to)
 
     try:
         connection = None
