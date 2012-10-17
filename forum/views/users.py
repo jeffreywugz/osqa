@@ -18,7 +18,7 @@ from forum.forms import *
 from forum.utils.html import sanitize_html
 from forum.modules import decorate, ReturnImediatelyException
 from datetime import datetime, date
-from forum.actions import EditProfileAction, FavoriteAction, BonusRepAction, SuspendAction
+from forum.actions import EditProfileAction, FavoriteAction, BonusRepAction, SuspendAction, ReportAction
 from forum.modules import ui
 from forum.utils import pagination
 from forum.views.readers import QuestionListPaginatorContext, AnswerPaginatorContext
@@ -251,6 +251,24 @@ def suspend(request, id):
     SuspendAction(user=request.user, ip=request.META['REMOTE_ADDR']).save(data=data)
 
     return decorators.RefreshPageCommand()
+
+@decorate.withfn(decorators.command)
+def report_user(request, id):
+    user = get_object_or_404(User, id=id)
+
+    if not request.POST.get('publicmsg', None):
+        return render_to_response('users/report_user.html')
+
+    data = {
+        'publicmsg': request.POST.get('publicmsg', _('N/A')),
+        'reported': user
+    }
+
+    ReportAction(user=request.user, ip=request.META['REMOTE_ADDR']).save(data=data)
+
+
+    return decorators.RefreshPageCommand()
+
 
 
 def user_view(template, tab_name, tab_title, tab_description, private=False, tabbed=True, render_to=None, weight=500):

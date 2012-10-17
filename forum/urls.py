@@ -103,6 +103,7 @@ core_urls = (
     url(r'^%s(?P<id>\d+)/(?P<slug>.*)/%s$' % (_('users/'), _('edit/')), app.users.edit_user, name='edit_user'),
     url(r'^%s(?P<id>\d+)/%s$' % (_('users/'), _('award/')), app.users.award_points, name='user_award_points'),
     url(r'^%s(?P<id>\d+)/%s$' % (_('users/'), _('suspend/')), app.users.suspend, name='user_suspend'),
+    url(r'^%s(?P<id>\d+)/%s$' % (_('users/'), _('report/')), app.users.report_user, name='user_report'),
     url(r'^%s(?P<id>\d+)/%s(?P<action>[a-z]+)/(?P<status>[a-z]+)/$' % (_('users/'), _('powers/')), app.users.user_powers, name='user_powers'),
     url((core_user_urls_prefix + '/%s$') % (_('users/'), _('subscriptions/')), app.users.user_subscriptions, name='user_subscriptions'),
     url(r'^%s(?P<id>\d+)/(?P<slug>.*)/%s$' % (_('users/'), _('preferences/')), app.users.user_preferences, name='user_preferences'),

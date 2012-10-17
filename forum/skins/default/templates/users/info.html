@@ -101,6 +101,14 @@
                     </td>
                 </tr>
                 {% endif %}
+
+                <tr>
+                    <td colspan="2" style="text-align:right">
+                        <a href="{% url user_report user.pk %}" class="ajax-command withprompt">
+                        Report user
+                        </a>
+                    </td>
+                </tr>
 				<!--
                 {% if votes_today_left %}
                 <tr>

@@ -193,6 +193,35 @@ class AwardAction(ActionProxy):
         'badge_name': self.award.badge.name,
         }
 
+
+class ReportAction(ActionProxy):
+    verb = _("suspended")
+
+    def process_data(self, **kwargs):
+        self.extra = kwargs
+        # message here?
+
+
+    def process_action(self):
+
+        all_superusers = User.objects.filter(is_superuser=True)
+
+
+        send_template_email(all_superusers, "notifications/user_reported.html", {
+            'reported': self.extra['reported'],
+            'user':self.user,
+            'message': self.extra['publicmsg']
+            }
+            )
+
+    def describe(self, viewer=None):
+
+        return _("%(user)s reported %(reported) : %(msg)s") % {
+            'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
+            'reporter': self.extra.get('reported').username,
+            'msg': self.extra.get('publicmsg', _('N/A'))
+        }
+
 class SuspendAction(ActionProxy):
     verb = _("suspended")
 
