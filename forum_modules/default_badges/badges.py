@@ -325,6 +325,7 @@ class ValidatedEmail(AbstractBadge):
     listen_to = (EmailValidationAction,)
     name = _("Validated Email")
     description = _("User who has validated email associated to the account")
+    award_once = True
 
     def award_to(self, action):
         return action.user
