@@ -19,11 +19,18 @@
 
     {% htmlcontent notifications/base.html %}
         <p style="{{ p_style }}">
+            {% if tag_links != "" %}
             {% blocktrans %}
             {{ author_link }} has just posted a new question on {{ app_name }}, entitled
             {{ question_link }}
              and tagged "<em>{{ tag_links }}</em>". Here's what it says:
             {% endblocktrans %}
+            {%else%}
+            {% blocktrans %}
+            {{ author_link }} has just posted a new question on {{ app_name }}, entitled
+            {{ question_link }}. Here's what it says:
+            {% endblocktrans %}
+            {%endif%}
         </p>
 
         <blockquote>
