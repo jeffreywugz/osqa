@@ -181,8 +181,10 @@ class CachedQuerySet(models.query.QuerySet):
         try:
             return md5(unicode(self.query).encode("utf-8")).hexdigest()
         except:
-            return md5(self.query).hexdigest()        
-
+            try:
+                return md5(self.query).hexdigest()
+            except:
+                return md5(str(self.query)).hexdigest()
 
 
 class CachedManager(models.Manager):
