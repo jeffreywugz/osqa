@@ -40,7 +40,7 @@ class OAuthAbstractAuthConsumer(AuthenticationConsumer):
         if token.key != request.GET.get('oauth_token', 'no-token'):
             raise InvalidAuthentication(_("Something went wrong! Auth tokens do not match"))
 
-        access_token = self.fetch_access_token(token)
+        access_token = self.fetch_access_token(token, request.GET.get('oauth_verifier', '')) 
 
         return access_token.to_string()
 
@@ -74,8 +74,9 @@ class OAuthAbstractAuthConsumer(AuthenticationConsumer):
         full_url='%s?%s'%(self.authorization_url, data)
         return full_url
 
-    def fetch_access_token(self, token):
+    def fetch_access_token(self, token, oauth_verifier): 
         oauth_request = oauth2.Request.from_consumer_and_token(self.consumer, token=token, http_url=self.access_token_url)
+        oauth_request['oauth_verifier'] = oauth_verifier 
         oauth_request.sign_request(self.signature_method, self.consumer, token)
         params = oauth_request
         data = urllib.urlencode(params)
