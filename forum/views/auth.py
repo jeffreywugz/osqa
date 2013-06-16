@@ -40,7 +40,7 @@ def signin_page(request):
         request.session[ON_SIGNIN_SESSION_ATTR] = referer
 
     all_providers = [provider.context for provider in AUTH_PROVIDERS.values() if provider.context]
-    # print AUTH_PROVIDERS["browseridconsumer"].context
+    
     sort = lambda c1, c2: c1.weight - c2.weight
     can_show = lambda c: not request.user.is_authenticated() or c.show_to_logged_in_user
 
