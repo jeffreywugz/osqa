@@ -1,0 +1,127 @@
+{% load extra_tags %}
+<script src="https://browserid.org/include.js" type="text/javascript"></script>
+
+<script>
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+var user_started_browserid_login = false;
+
+(function($, window) {
+    'use strict';
+
+    // State? Ewwwwww.
+    var loginRedirect = null; // Path to redirect to post-login.
+    var logoutRedirect = null; // Path to redirect to post-logout.
+
+    // Public API
+    window.django_browserid = {
+        /**
+         * Triggers BrowserID login.
+         * @param {string} next URL to redirect the user to after login.
+         * @param {object} requestArgs Options to pass to navigator.id.request.
+         */
+        login: function login(next, requestArgs) {
+            var defaults = $('#browserid-info').data('requestArgs');
+            requestArgs = $.extend({}, defaults, requestArgs);
+
+            loginRedirect = next;
+            navigator.id.request(requestArgs);
+        },
+
+        /**
+         * Triggers BrowserID logout.
+         * @param {string} next URL to redirect the user to after logout.
+         */
+        logout: function logout(next) {
+            logoutRedirect = next;
+            navigator.id.logout();
+        },
+
+        /**
+         * Check to see if the current user has authenticated via
+         * django_browserid.
+         * @return {boolean} True if the user has authenticated, false
+         *                   otherwise.
+         */
+        isUserAuthenticated: function isUserAuthenticated() {
+            return !!$('#browserid-info').data('userEmail');
+        }
+    };
+
+    $(function() {
+        var $loginForm = $('#browserid-form'); // Form used to submit login.
+        var $browseridInfo = $('#browserid-info'); // Useful info from backend.
+
+        var loginFailed = location.search.indexOf('bid_login_failed=1') !== -1;
+
+        // Call navigator.id.request whenever a login link is clicked.
+        $(document).on('click', '.browserid-login', function(e) {
+            user_started_browserid_login = true;
+            e.preventDefault();
+            console.log($(this).data('next'));
+            django_browserid.login($(this).data('next'));
+        });
+
+        // Call navigator.id.logout whenever a logout link is clicked.
+        $(document).on('click', '.browserid-logout', function(e) {
+            e.preventDefault();
+            django_browserid.logout($(this).attr('href'));
+        });
+
+        navigator.id.watch({
+            loggedInUser: $browseridInfo.data('userEmail') || null,
+            onlogin: function(assertion) {
+                // Avoid auto-login on failure.
+                if (loginFailed) {
+                    navigator.id.logout();
+                    loginFailed = false;
+                    return;
+                }
+
+                if (assertion && user_started_browserid_login) {
+                    $loginForm.find('input[name="next"]').val(loginRedirect);
+                    $loginForm.find('input[name="assertion"]').val(assertion);
+                    console.log("esta");
+                    $loginForm.submit();
+                }
+            },
+            onlogout: function() {
+                // Follow the logout link's href once logout is complete.
+                var currentLogoutUrl = logoutRedirect;
+                if (currentLogoutUrl !== null) {
+                    logoutRedirect = null;
+                    window.location = currentLogoutUrl;
+                } else {
+                    // Sometimes you can get caught in a loop where BrowserID
+                    // keeps trying to log you out as soon as watch is called,
+                    // and fails since the logout URL hasn't been set yet.
+                    // Here we just find the first logout button and use that
+                    // URL; if this breaks your site, you'll just need custom
+                    // JavaScript instead, sorry. :(
+                    currentLogoutUrl = $('.browserid-logout').attr('href');
+                    if (currentLogoutUrl) {
+                        window.location = currentLogoutUrl;
+                    }
+                }
+            }
+        });
+    });
+})(jQuery, window);
+
+</script>
+<div id="browserid-info"
+     style="display: none;"
+     data-user-email=""
+     data-request-args="">
+</div>
+
+<a class="browserid-login" style="position: relative;" href="#"><img src="{% media '/media/images/openid/persona-logo-wordmark.png' %}" /></a>
+
+
+<form id="browserid-form" method="POST" action="{% url auth_provider_done provider="browserid" %}" style="display: none;">
+  {% csrf_token %}
+  <input type="hidden" name="assertion" />
+  <input type="hidden" name="next" />
+
+</form>
